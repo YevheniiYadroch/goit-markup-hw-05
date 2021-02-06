@@ -6,6 +6,7 @@
   --hero-background-color: #2f303a;
   --primary-background: #ffffff;
   --secondary-background: #f5f4fa;
+  --activities-label-background: rgba(47, 48, 58, 0.8);
   --primary-icon: #afb1b8;
 }
 
@@ -145,11 +146,12 @@ body {
   text-align: center;
 }
 
-.hero a {
+.hero button {
   display: inline-block;
   padding: 11px 32px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  border: none;
 
   color: var(--secondary-accent-color);
   background-color: var(--accent-color);
@@ -157,7 +159,7 @@ body {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
-  text-decoration: none;
+  letter-spacing: 0.06em;
 }
 
 /* Main index.html */
@@ -249,6 +251,29 @@ body {
 
 .activities .item {
   margin-bottom: 94px;
+  position: relative;
+  height: 294px;
+}
+
+.image-description {
+  display: flex;
+  background: var(--activities-label-background);
+  width: 370px;
+  height: 70px;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-description p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--secondary-accent-color);
 }
 
 .team {
@@ -383,6 +408,50 @@ body {
   margin-right: 30px;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+
+  background: var(--primary-background);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  border: none;
+  background: transparent;
+  background-image: url(../images/close.svg);
+}
+
 /* Footer */
 
 .footer-section {
@@ -510,6 +579,32 @@ body {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 } */
+
+.thumb {
+  position: relative;
+}
+
+.thumb:hover::before {
+  opacity: 1;
+}
+
+.thumb::before {
+  display: inline-block;
+  position: absolute;
+  content: "Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов.";
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+
+  opacity: 0;
+  background: rgba(33, 150, 243, 0.9);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  color: var(--secondary-accent-color);
+}
 
 .portfolio-link {
   display: block;
