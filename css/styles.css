@@ -649,6 +649,10 @@ body {
   transform: translateY(0);
 }
 
+.portfolio-link:focus .thumb-overlay {
+  transform: translateY(0);
+}
+
 .thumb-overlay {
   position: absolute;
   width: 100%;
